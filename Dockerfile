@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the current directory contents into the container 
 COPY . /app
 
-# Install dependencies
+## Install dependencies
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r Requirements.txt
 # Download NLTK stopwords inside the container

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "domain-classification-api"
+version = "0.1.0"
+description = "FastAPI service for domain classification using XGBoost + vectorizer"
+authors = [
+    { name="shubhali", email="@email.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10.5"
+
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "nltk",
+    "joblib",
+    "scikit-learn",   
+    "xgboost",        
+    "numpy"
+]
+
+[tool.uvicorn]
+reload = true
+host = "0.0.0.0"
+port = 8000

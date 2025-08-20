@@ -2,7 +2,7 @@
 
 This project focuses on domain classification using machine learning techniques. Two models were implemented: **Random Forest** and **XGBoost**. After evaluation, **XGBoost** demonstrated superior performance.
 
-## Features
+## Features.
 
 - **Domain Classification**: Classifies input data into predefined categories.
 - **Model Comparison**: Implements both Random Forest and XGBoost for benchmarking.
