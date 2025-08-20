@@ -1,17 +1,20 @@
-# Use official Python image as base
-FROM python:3.11-slim
+# Use official Python runtime as a parent image
+FROM python:3.10.5-slim
 
-# Set working directory
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy requirements if present
-COPY requirements.txt .
+# Copy the current directory contents into the container 
+COPY . /app
 
-# Install dependencies if requirements.txt exists
-RUN if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r Requirements.txt
+# Download NLTK stopwords inside the container
+RUN python -m nltk.downloader stopwords
 
-# Copy application code
-COPY . .
+# Expose the port FastAPI will run on
+EXPOSE 8000
 
-# Set default command (adjust as needed)
-CMD ["python", "main.py"]
+# Run the FastAPI app with uvicorn
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,4 +1,7 @@
 joblib
 fastapi
-fastapi
 uvicorn
+pandas 
+numpy
+scikit-learn
+xgboost
